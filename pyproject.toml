@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-automultigpu"
+version = "1.0.0"
+description = "High-Performance Zero-OOM Multi-GPU Distribution & Memory Management Engine for ComfyUI — Layer Sharding, Device Splitting, and Dynamic VRAM Balancing for FLUX.2, LTX-Video, and Large DiT Models."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "nexusfinancial-dev", url = "https://github.com/nexusfinancial-dev" }]
+keywords = ["comfyui", "multigpu", "zero-oom", "flux", "ltx-video", "pytorch", "layer-sharding", "vram-optimization"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "torch>=2.4.0",
+    "accelerate>=0.30.0",
+    "safetensors>=0.4.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/nexusfinancial-dev/ComfyUI-AutoMultiGPU"
+Repository = "https://github.com/nexusfinancial-dev/ComfyUI-AutoMultiGPU.git"
+Issues = "https://github.com/nexusfinancial-dev/ComfyUI-AutoMultiGPU/issues"
+
+[tool.comfy]
+PublisherId = "nexusfinancial-dev"
+DisplayName = "ComfyUI AutoMultiGPU Engine"
+Icon = ""

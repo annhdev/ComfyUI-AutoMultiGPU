@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Models and Weights
+*.safetensors
+*.ckpt
+*.pt
+*.bin
+*.gguf
+*.onnx
+
+# Output directories & Media
+output/
+temp/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.wav
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
