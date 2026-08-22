@@ -134,12 +134,15 @@ class AutoDualCLIPLoaderMultiGPU:
 
         clip_type = resolve_clip_type(type, clip_name1)
         clip_path1 = resolve_clip_path(clip_name1)
-        clip_path2 = resolve_clip_path(clip_name2)
+        
+        ckpt_paths = [clip_path1]
+        if clip_name2 and clip_name2 != "none":
+            ckpt_paths.append(resolve_clip_path(clip_name2))
 
         # Check if any is GGUF
-        if is_gguf_file(clip_path1) or is_gguf_file(clip_path2):
+        if any(is_gguf_file(p) for p in ckpt_paths):
             clip = load_clip_gguf_on_device(
-                clip_paths=[clip_path1, clip_path2],
+                clip_paths=ckpt_paths,
                 clip_type=clip_type,
                 target_device=chosen_device,
                 cpu_offload=use_cpu_offload
@@ -152,7 +155,7 @@ class AutoDualCLIPLoaderMultiGPU:
         }
 
         clip = comfy.sd.load_clip(
-            ckpt_paths=[clip_path1, clip_path2],
+            ckpt_paths=ckpt_paths,
             embedding_directory=folder_paths.get_folder_paths("embeddings"),
             clip_type=clip_type,
             model_options=model_options

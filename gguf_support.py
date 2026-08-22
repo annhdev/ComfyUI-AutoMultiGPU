@@ -20,7 +20,7 @@ _GGMLOps = None
 _GGUFModelPatcher = None
 
 try:
-    for mod_name in ["custom_nodes.ComfyUI-GGUF", "ComfyUI-GGUF"]:
+    for mod_name in ["custom_nodes.ComfyUI-GGUF_KREA-2", "ComfyUI-GGUF_KREA-2", "custom_nodes.ComfyUI-GGUF", "ComfyUI-GGUF"]:
         try:
             _gguf_module = importlib.import_module(mod_name)
             break
