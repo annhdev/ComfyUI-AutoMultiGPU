@@ -173,6 +173,7 @@ class AutoMultiGPU_DisTorch:
         # 2. Load CLIP on cuda:1
         clip = None
         c_type = resolve_clip_type(model_type, unet_name)
+        logger.info(f"✅ [DisTorch Engine] (CLIPType Print: {c_type})")
 
         if clip_name1 != "none" and clip_name2 != "none":
             p1 = resolve_clip_path(clip_name1)

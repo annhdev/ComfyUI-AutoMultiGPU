@@ -167,6 +167,7 @@ class AutoMultiGPU_PyTorch:
         # 2. Load CLIP on isolated clip_device (cuda:1)
         clip = None
         c_type = resolve_clip_type(model_type, unet_name)
+        logger.info(f"✅ [PyTorch Engine] (CLIPType Print: {c_type})")
         offload_dev = torch.device("cpu") if cpu_offload_mode == "always_offload_to_cpu" else torch.device(clip_device)
         
         if clip_name1 != "none" and clip_name2 != "none":

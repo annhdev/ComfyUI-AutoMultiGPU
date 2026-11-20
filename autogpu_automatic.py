@@ -97,8 +97,8 @@ class AutoMultiGPU_Automatic:
                 clip_name2=clip_name2,
                 vae_name=vae_name,
                 model_type=model_type,
-                clip_device="cuda:1",
-                vae_device="cuda:1",
+                clip_device="cuda:0",
+                vae_device="cuda:0",
                 weight_dtype=weight_dtype
             )
 
