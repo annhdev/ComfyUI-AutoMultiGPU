@@ -43,7 +43,9 @@ def resolve_clip_type(model_type_str, unet_name=""):
         elif "cogvideo" in u: return getattr(comfy.sd.CLIPType, "COGVIDEOX", comfy.sd.CLIPType.STABLE_DIFFUSION)
         elif "lumina" in u: return getattr(comfy.sd.CLIPType, "LUMINA2", comfy.sd.CLIPType.STABLE_DIFFUSION)
         elif "mochi" in u: return getattr(comfy.sd.CLIPType, "MOCHI", comfy.sd.CLIPType.STABLE_DIFFUSION)
+        elif "moss_image" in u: return getattr(comfy.sd.CLIPType, "MOSS_IMAGE", comfy.sd.CLIPType.MOSS_IMAGE)
         elif "pixart" in u: return getattr(comfy.sd.CLIPType, "PIXART", comfy.sd.CLIPType.STABLE_DIFFUSION)
+        elif "moss_image" in u: return comfy.sd.CLIPType.MOSS_IMAGE
         else: return comfy.sd.CLIPType.STABLE_DIFFUSION
 
     # Direct name mapping
@@ -85,11 +87,12 @@ def resolve_clip_type(model_type_str, unet_name=""):
         "lens": getattr(comfy.sd.CLIPType, "LENS", comfy.sd.CLIPType.STABLE_DIFFUSION),
         "mage": getattr(comfy.sd.CLIPType, "MAGE", comfy.sd.CLIPType.STABLE_DIFFUSION),
         "newbie": getattr(comfy.sd.CLIPType, "NEWBIE", comfy.sd.CLIPType.STABLE_DIFFUSION),
+        "moss_image": comfy.sd.CLIPType.MOSS_IMAGE,
     }
     return mapping.get(m, getattr(comfy.sd.CLIPType, m.upper(), comfy.sd.CLIPType.STABLE_DIFFUSION))
 
 
-FULL_MODEL_TYPES = ['auto', 'flux', 'flux2', 'sdxl', 'sd15', 'sd3', 'wan', 'ltxv', 'hunyuan_video', 'hunyuan_video_15', 'hunyuan_image', 'hunyuan_dit', 'minimax', 'qwen_image', 'krea2', 'boogu', 'longcat_image', 'chroma', 'cosmos', 'cogvideox', 'lumina2', 'mochi', 'pixart', 'pixeldit', 'omnigen2', 'ovis', 'joyimage', 'ideogram4', 'kandinsky5', 'kandinsky5_image', 'stable_audio', 'stable_cascade', 'hidream', 'ace', 'lens', 'mage', 'newbie']
+FULL_MODEL_TYPES = ['auto', 'flux', 'flux2', 'sdxl', 'sd15', 'sd3', 'wan', 'ltxv', 'hunyuan_video', 'hunyuan_video_15', 'hunyuan_image', 'hunyuan_dit', 'minimax', 'qwen_image', 'krea2', 'boogu', 'longcat_image', 'chroma', 'cosmos', 'cogvideox', 'lumina2', 'mochi', 'pixart', 'pixeldit', 'omnigen2', 'ovis', 'joyimage', 'ideogram4', 'kandinsky5', 'kandinsky5_image', 'stable_audio', 'stable_cascade', 'hidream', 'ace', 'lens', 'mage', 'newbie', 'moss_image']
 
 class AutoMultiGPU_DisTorch:
     """
