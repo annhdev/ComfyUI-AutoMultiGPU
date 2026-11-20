@@ -187,6 +187,7 @@ class AutoMultiGPU_PyTorch:
             if is_gguf_file(p1):
                 clip = load_clip_gguf_on_device([p1], clip_type=c_type, target_device=clip_device)
             else:
+                logger.info(f"✅ [PyTorch Engine] (clip_path Print: {p1})")
                 clip = comfy.sd.load_clip(
                     ckpt_paths=[p1],
                     embedding_directory=folder_paths.get_folder_paths("embeddings"),
