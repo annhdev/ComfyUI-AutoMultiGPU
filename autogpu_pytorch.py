@@ -44,7 +44,7 @@ def resolve_clip_type(model_type_str, unet_name=""):
         elif "lumina" in u: return getattr(comfy.sd.CLIPType, "LUMINA2", comfy.sd.CLIPType.STABLE_DIFFUSION)
         elif "mochi" in u: return getattr(comfy.sd.CLIPType, "MOCHI", comfy.sd.CLIPType.STABLE_DIFFUSION)
         elif "pixart" in u: return getattr(comfy.sd.CLIPType, "PIXART", comfy.sd.CLIPType.STABLE_DIFFUSION)
-        elif "moss_image" in u: return comfy.sd.CLIPType.MOSS_IMAGE
+        elif "moss_image" in u: return getattr(comfy.sd.CLIPType, "MOSS_IMAGE", comfy.sd.CLIPType.STABLE_DIFFUSION)
         else: return comfy.sd.CLIPType.STABLE_DIFFUSION
 
     # Direct name mapping
@@ -86,7 +86,7 @@ def resolve_clip_type(model_type_str, unet_name=""):
         "lens": getattr(comfy.sd.CLIPType, "LENS", comfy.sd.CLIPType.STABLE_DIFFUSION),
         "mage": getattr(comfy.sd.CLIPType, "MAGE", comfy.sd.CLIPType.STABLE_DIFFUSION),
         "newbie": getattr(comfy.sd.CLIPType, "NEWBIE", comfy.sd.CLIPType.STABLE_DIFFUSION),
-        "moss_image": comfy.sd.CLIPType.MOSS_IMAGE,
+        "moss_image": getattr(comfy.sd.CLIPType, "MOSS_IMAGE", comfy.sd.CLIPType.STABLE_DIFFUSION),
     }
     return mapping.get(m, getattr(comfy.sd.CLIPType, m.upper(), comfy.sd.CLIPType.STABLE_DIFFUSION))
 
