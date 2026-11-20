@@ -131,7 +131,7 @@ class AutoMultiGPU_PyTorch:
     DESCRIPTION = "Rock-solid native PyTorch component isolation for 100% stability and zero OOM across all model architectures."
 
     def load_pytorch(self, unet_name, clip_name1, clip_name2, vae_name, model_type="auto",
-                     clip_device="cuda:1", vae_device="cuda:1", weight_dtype="default",
+                     clip_device="cuda:0", vae_device="cuda:0", weight_dtype="default",
                      cpu_offload_mode="always_offload_to_cpu"):
         
         logger.info(f"💎 [PyTorch Engine] Routing UNet->cuda:0, CLIP->{clip_device}, VAE->{vae_device} (Model Type: {model_type})...")
